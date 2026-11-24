@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#152e2b" />
+    <title>Dispatch | Directive register</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <a class="brand" href="/"><i aria-hidden="true"></i> Dispatch</a
+        ><span id="identity">Secure communications</span
+        ><button id="logout" class="quiet" hidden>Sign out</button>
+      </div>
+    </header>
+    <main>
+      <details>
+        <summary>Try the demo</summary>
+        <ol>
+          <li>Create a workspace and save the access codes. Sign in as Headquarters.</li>
+          <li>Choose Alice or add a badge under Employee access. Check for “Awaiting first issuance” and send a directive.</li>
+          <li>In a separate tab, sign in as that employee. Inspect the encrypted envelope before retrieving the key.</li>
+          <li>Select Retrieve my key, then Decrypt directive. Compare the text with the original.</li>
+          <li>Export the envelope. Sign in as Bob in another tab, retrieve his key and try opening the same file.</li>
+        </ol>
+      </details>
+      <section id="access">
+        <div class="intro">
+          <p class="eyebrow">Operations desk</p>
+          <h1>Directive register</h1>
+          <p>
+            Issue encrypted instructions and retrieve directives addressed to
+            your employee identity.
+          </p>
+        </div>
+        <div class="columns">
+          <article>
+            <h2>Sign in</h2>
+            <form id="login">
+              <label
+                >Workspace ID<input
+                  name="workspace"
+                  required
+                  autocomplete="off"
+                  spellcheck="false" /></label
+              ><label
+                >Employee identity<input
+                  name="email"
+                  type="text"
+                  required
+                  autocomplete="username"
+                  placeholder="alice@company.local" /></label
+              ><label
+                >Access code<input
+                  name="pass"
+                  type="password"
+                  required
+                  autocomplete="current-password" /></label
+              ><button>Sign in</button>
+            </form>
+          </article>
+          <aside>
+            <h2>New workspace</h2>
+            <p>
+              Create an independent register with access for Headquarters and
+              two employees. Save the access codes when they appear.
+            </p>
+            <button class="light" id="create">Create workspace</button>
+            <div id="credentials"></div>
+          </aside>
+        </div>
+      </section>
+      <section id="desk" hidden>
+        <div class="intro">
+          <p class="eyebrow" id="role"></p>
+          <h1 id="heading"></h1>
+          <p id="detail"></p>
+        </div>
+        <div class="columns">
+          <div>
+            <article id="compose" hidden>
+              <h2>Issue directive</h2>
+              <form id="send">
+                <label>Recipient<select id="recipient"></select></label
+                ><small id="key-status"></small
+                ><label
+                  >Instructions<textarea
+                    id="message"
+                    required
+                    maxlength="2000"
+                    rows="4"
+                    placeholder="Enter the operational instructions"
+                  ></textarea></label
+                ><button>Encrypt and send</button>
+              </form>
+            </article>
+            <article>
+              <div class="line">
+                <h2 id="register"></h2>
+                <button id="refresh" class="link">Refresh</button>
+              </div>
+              <div id="messages"></div>
+            </article>
+          </div>
+          <aside id="action-panel">
+            <h2 id="panel-title"></h2>
+            <div id="panel"></div>
+            <section id="employee-access" hidden>
+              <h3>Employee access</h3>
+              <form id="provision">
+                <label>New employee badge ID<input name="badge" required maxlength="128" placeholder="field-17" /></label>
+                <button>Add employee</button>
+              </form>
+              <div id="issued-code" aria-live="polite"></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+      <div id="notice" role="status" aria-live="polite"></div>
+    </main>
+    <footer><span>Dispatch</span><span>Identity-based encryption</span></footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

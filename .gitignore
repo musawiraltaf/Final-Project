@@ -1,0 +1,11 @@
+data/
+node_modules/
+dist/
+.env
+*.sqlite*
+*.key
+workspace-access*.json
+.wrangler/
+.openai/
+.dev.vars*
+.env.*

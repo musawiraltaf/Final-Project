@@ -1,0 +1,14 @@
+{
+  "name": "dispatch-ibe",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dispatch-ibe-db",
+      "database_id": "09a4ecf4-bf5a-4336-bf94-81d7a7aad19e",
+      "migrations_dir": "drizzle"
+    }
+  ]
+}

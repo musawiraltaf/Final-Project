@@ -1,0 +1,8 @@
+.git
+.openai
+data
+node_modules
+dist
+*.key
+.env
+workspace-access*.json

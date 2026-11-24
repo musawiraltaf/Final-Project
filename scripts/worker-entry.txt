@@ -1,0 +1,14 @@
+const {handle}=load('api.js');
+export default {
+ async fetch(request,env){
+  const path=new URL(request.url).pathname;
+  if(path.startsWith('/api/'))return handle(request,env);
+  const file=path==='/'?'/index.html':path;
+  if(!Object.hasOwn(assets,file))return new Response('Page unavailable',{status:404});
+  return new Response(assets[file],{headers:{
+    'Content-Type':file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html; charset=utf-8',
+    'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',
+    'Content-Security-Policy':"default-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+  }});
+ }
+};
