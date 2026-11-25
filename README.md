@@ -12,7 +12,7 @@ An emergency directive register using Boneh–Franklin identity-based encryption
 | Moiz Hassan | 24I-2096 |
 | Abdul Rehman | 24I-2092 |
 
-[Technical report](docs/Technical-Report.pdf) · [Presentation](docs/Presentation.pdf)
+[Technical report](docs/Technical-Report.pdf)
 
 ## Run on Windows, macOS or Linux
 
@@ -82,7 +82,7 @@ The tests run actual application handlers, cryptography and SQLite in an isolate
 | public/ibe.js | Boneh–Franklin FullIdent construction, domain separation and Web Crypto AES-256-GCM |
 | public/app.js | Sign-in, sending, inbox, file import/export, identity key retrieval and rotation |
 | public/vendor | Browser-ready Noble curve and hashing modules, distributed under their included MIT licenses |
-| docs | Technical report and presentation |
+| docs | Technical report |
 
 ### REST endpoints
 
